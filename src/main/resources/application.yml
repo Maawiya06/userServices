@@ -1,2 +1,14 @@
 server:
   port: 8081
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/microservices
+    username: root
+    password: GN2490
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
