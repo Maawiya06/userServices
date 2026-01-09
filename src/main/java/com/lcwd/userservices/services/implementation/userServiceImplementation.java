@@ -16,16 +16,19 @@ public class userServiceImplementation implements userServices {
 
     @Override
     public User saveUser(User user) {
-        return null;
+        // save the user in database
+        return userRepositories.save(user);
     }
 
     @Override
     public List<User> getAllUser() {
-        return List.of();
+        // get all user
+        return userRepositories.findAll();
     }
 
     @Override
     public User getUser(String UserId) {
-        return null;
+        // get user by id
+        return userRepositories.findById(UserId).orElseThrow();
     }
 }
