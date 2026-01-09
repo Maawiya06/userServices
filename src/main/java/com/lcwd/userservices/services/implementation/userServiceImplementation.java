@@ -3,14 +3,14 @@ package com.lcwd.userservices.services.implementation;
 import com.lcwd.userservices.entities.User;
 import com.lcwd.userservices.exception.ResourceNotFoundException;
 import com.lcwd.userservices.repositories.UserRepositories;
-import com.lcwd.userservices.services.userServices;
+import com.lcwd.userservices.services.UserServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class userServiceImplementation implements userServices {
+public class userServiceImplementation implements UserServices {
 
     @Autowired
     private UserRepositories userRepositories;

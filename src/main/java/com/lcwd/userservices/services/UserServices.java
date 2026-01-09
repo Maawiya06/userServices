@@ -4,7 +4,7 @@ import com.lcwd.userservices.entities.User;
 
 import java.util.List;
 
-public interface userServices {
+public interface UserServices {
 
     // create
     User saveUser(User user);
