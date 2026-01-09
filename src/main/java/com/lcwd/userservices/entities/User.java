@@ -7,7 +7,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name= "microservices_user")
-public class user {
+public class User {
 
     @Id
     @Column(name= "id")
