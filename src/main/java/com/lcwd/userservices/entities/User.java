@@ -6,6 +6,9 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name= "microservices_user")
 
@@ -26,6 +29,6 @@ public class User {
     @Column(name= "ABOUT")
     private String userAbout;
 
-    private List<Rating> rating;
+    private List<Rating> rating = new ArrayList<>();
 
 }
