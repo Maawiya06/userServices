@@ -34,7 +34,9 @@ public class userServiceImplementation implements UserServices {
     @Override
     public User getUser(String UserId) {
         // get user by id
-        return userRepositories.findById(UserId).orElseThrow(() ->
+        // get user from database with the help of user repository
+        User user = userRepositories.findById(UserId).orElseThrow(() ->
                 new ResourceNotFoundException("User with given Id is not found on server !! : " + UserId));
+        return user;
     }
 }
