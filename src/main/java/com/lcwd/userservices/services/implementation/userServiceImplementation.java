@@ -37,6 +37,9 @@ public class userServiceImplementation implements UserServices {
         // get user from database with the help of user repository
         User user = userRepositories.findById(UserId).orElseThrow(() ->
                 new ResourceNotFoundException("User with given Id is not found on server !! : " + UserId));
+        // fetch rating of the above user from rating services
+        //http://localhost:8083/ratings/users/022411c7-628b-48ed-ac68-10a1ba40baf9
+
         return user;
     }
 }
