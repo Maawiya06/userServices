@@ -6,6 +6,7 @@ import com.lcwd.userservices.repositories.UserRepositories;
 import com.lcwd.userservices.services.UserServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 import java.util.UUID;
@@ -15,6 +16,9 @@ public class userServiceImplementation implements UserServices {
 
     @Autowired
     private UserRepositories userRepositories;
+
+    @Autowired
+    private RestTemplate restTemplate;
 
     @Override
     public User saveUser(User user) {
