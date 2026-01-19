@@ -56,7 +56,7 @@ public class userServiceImplementation implements UserServices {
         // fetch rating of the above user from rating services
         //http://localhost:8083/ratings/users/022411c7-628b-48ed-ac68-10a1ba40baf9
         Rating[] ratingOfUsers = restTemplate.
-                getForObject("http://RATING-SERVICE/ratings/users/" + user.getUserId(), Rating[].class);
+                getForObject("http://RATINGSERVICES/ratings/users/" + user.getUserId(), Rating[].class);
         logger.info("{} ", ratingOfUsers);
 
 
@@ -67,7 +67,7 @@ public class userServiceImplementation implements UserServices {
             // api call to hotel service to get the hotel
             // http://localhost:8082/hotels/181a02fe-794b-459b-90e7-1733e066b99e
             ResponseEntity<Hotel> forEntity = restTemplate.
-                    getForEntity("http://HOTEL-SERVICE/hotels/" + rating.getHotelId(), Hotel.class);
+                    getForEntity("http://HOTELSERVICE/hotels/" + rating.getHotelId(), Hotel.class);
             Hotel hotel = forEntity.getBody();
             logger.info("response status code: {}", forEntity.getStatusCode());
             // set the hotel to rating
