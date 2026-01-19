@@ -54,10 +54,10 @@ public class userServiceImplementation implements UserServices {
         
         // fetch rating of the above user from rating services
         //http://localhost:8083/ratings/users/022411c7-628b-48ed-ac68-10a1ba40baf9
-        
         ArrayList<Rating> ratingOfUsers = restTemplate.getForObject("http://localhost:8083/ratings/users/" + user.getUserId(), ArrayList.class);
         logger.info("{} ", ratingOfUsers);
 
+        // fetching hotel from here
         List<Rating> ratingList = ratingOfUsers.stream().map(rating -> {
             // api call to hotel service to get the hotel
             // http://localhost:8082/hotels/181a02fe-794b-459b-90e7-1733e066b99e
