@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -54,14 +55,19 @@ public class userServiceImplementation implements UserServices {
         
         // fetch rating of the above user from rating services
         //http://localhost:8083/ratings/users/022411c7-628b-48ed-ac68-10a1ba40baf9
-        ArrayList<Rating> ratingOfUsers = restTemplate.getForObject("http://localhost:8083/ratings/users/" + user.getUserId(), ArrayList.class);
+        Rating[] ratingOfUsers = restTemplate.
+                getForObject("http://localhost:8083/ratings/users/" + user.getUserId(), Rating[].class);
         logger.info("{} ", ratingOfUsers);
 
+
+        List<Rating> ratings = Arrays.stream(ratingOfUsers).toList();
+
         // fetching hotel from here
-        List<Rating> ratingList = ratingOfUsers.stream().map(rating -> {
+        List<Rating> ratingList = ratings.stream().map(rating -> {
             // api call to hotel service to get the hotel
             // http://localhost:8082/hotels/181a02fe-794b-459b-90e7-1733e066b99e
-            ResponseEntity<Hotel> forEntity = restTemplate.getForEntity("http://localhost:8082/hotels/" + rating.getHotelId(), Hotel.class);
+            ResponseEntity<Hotel> forEntity = restTemplate.
+                    getForEntity("http://localhost:8082/hotels/" + rating.getHotelId(), Hotel.class);
             Hotel hotel = forEntity.getBody();
             logger.info("response status code: {}", forEntity.getStatusCode());
             // set the hotel to rating
