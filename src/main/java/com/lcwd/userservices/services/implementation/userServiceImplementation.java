@@ -4,6 +4,7 @@ import com.lcwd.userservices.entities.Hotel;
 import com.lcwd.userservices.entities.Rating;
 import com.lcwd.userservices.entities.User;
 import com.lcwd.userservices.exception.ResourceNotFoundException;
+import com.lcwd.userservices.externalServices.HotelServices;
 import com.lcwd.userservices.repositories.UserRepositories;
 import com.lcwd.userservices.services.UserServices;
 import org.slf4j.Logger;
@@ -28,6 +29,9 @@ public class userServiceImplementation implements UserServices {
 
     @Autowired
     private RestTemplate restTemplate;
+
+    @Autowired
+    private HotelServices hotelServices;
 
     private Logger logger = LoggerFactory.getLogger(userServiceImplementation.class);
 
