@@ -1,4 +1,13 @@
 package com.lcwd.userservices.externalServices;
 
+import com.lcwd.userservices.entities.Hotel;
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+@FeignClient(name= "HOTELSERVICES")
 public interface HotelServices {
+
+    @GetMapping("/hotels/{hotelId}")
+    Hotel getHotel(@PathVariable("hotelId") String hotelId);
 }
