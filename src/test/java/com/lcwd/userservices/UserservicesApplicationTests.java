@@ -1,5 +1,6 @@
 package com.lcwd.userservices;
 
+import com.lcwd.userservices.entities.Rating;
 import com.lcwd.userservices.externalServices.RatingServices;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +17,15 @@ class UserservicesApplicationTests {
 	private RatingServices ratingServices;
 
 	void createRating(){
-
-		ratingServices.createRating();
+		Rating rating = Rating.
+				builder().
+				rating(10).
+				ratingId("").
+				userId("").
+				hotelId("").
+				feedback("This is created using feign client which is most easy method").
+				build();
+		ratingServices.createRating(rating);
 	}
 
 }
