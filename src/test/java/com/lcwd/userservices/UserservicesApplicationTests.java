@@ -25,7 +25,8 @@ class UserservicesApplicationTests {
 				hotelId("").
 				feedback("This is created using feign client which is most easy method").
 				build();
-		ratingServices.createRating(rating);
+		Rating saverating = ratingServices.createRating(rating);
+		System.out.println("new Rating created");
 	}
 
 }
