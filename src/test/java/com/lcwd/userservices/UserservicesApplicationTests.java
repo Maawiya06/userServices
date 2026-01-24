@@ -16,6 +16,7 @@ class UserservicesApplicationTests {
 	@Autowired
 	private RatingServices ratingServices;
 
+	@Test
 	void createRating(){
 		Rating rating = Rating.
 				builder().
@@ -25,8 +26,7 @@ class UserservicesApplicationTests {
 				hotelId("").
 				feedback("This is created using feign client which is most easy method").
 				build();
-		Rating saverating = ratingServices.createRating(rating);
+		Rating savedRating = ratingServices.createRating(rating);
 		System.out.println("new Rating created");
 	}
-
 }
