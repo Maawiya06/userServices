@@ -2,6 +2,7 @@ package com.lcwd.userservices.externalServices;
 
 import com.lcwd.userservices.entities.Rating;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 
@@ -16,5 +17,5 @@ public interface RatingServices {
 
     //PUT
     @PutMapping("ratings/{ratingId}")
-    Rating updateRating(Rating rating);
+    Rating updateRating(@PathVariable("ratingId") String ratingId, Rating rating);
 }
