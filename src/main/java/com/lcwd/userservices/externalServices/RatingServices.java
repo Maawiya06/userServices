@@ -3,6 +3,7 @@ package com.lcwd.userservices.externalServices;
 import com.lcwd.userservices.entities.Rating;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 
 @FeignClient(name= "RATINGSERVICES")
 public interface RatingServices {
@@ -11,8 +12,9 @@ public interface RatingServices {
 
     //POST
     @PostMapping("/ratings")
-    Rating createRating();
+    Rating createRating(Rating values);
 
     //PUT
-    Rating updateRating();
+    @PutMapping("ratings/{ratingId}")
+    Rating updateRating(Rating rating);
 }
