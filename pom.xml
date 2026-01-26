@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.lcwd.user.services</groupId>
-	<artifactId>userservices</artifactId>
+	<artifactId>USERSERVICES</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>USERSERVICES</name>
 	<description>This is User Services </description>
