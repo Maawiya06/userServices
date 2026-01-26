@@ -13,8 +13,8 @@ class UserservicesApplicationTests {
 	void contextLoads() {
 	}
 
-	@Autowired
-	private RatingServices ratingServices;
+//	@Autowired
+//	private RatingServices ratingServices;
 
 //	@Test
 //	void createRating(){
