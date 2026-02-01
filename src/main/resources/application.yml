@@ -37,8 +37,6 @@ management:
     web:
       exposer:
         include: health
-
-
   endpoint:
     health:
       show-details: always
