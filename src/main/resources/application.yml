@@ -33,3 +33,7 @@ management:
   health:
     circuitbreakers:
       enable: true
+    endpoints:
+      web:
+        exposer:
+          include: health
