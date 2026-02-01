@@ -52,5 +52,6 @@ resilience4j:
         automaticTransitionFromOpenToHalfOpenEnabled: true
         waitDurationInOpenState: 6s
         permittedNumberOfCallsInHalfOpenState: 3
-
+        slidingWindowSize: 10
+        slidingWindowType: COUNT_BASED
 
