@@ -39,17 +39,20 @@ public class UserController {
     }
 
     // single get
+    int retryCount = 1;
     @GetMapping("/{userId}")
 //    @CircuitBreaker(name= "ratingHotelBreaker", fallbackMethod = "ratingHotelFallBack")
     @Retry(name = "ratingHotelServices", fallbackMethod = "ratingHotelFallBack")
     public ResponseEntity<User> getSingleUser(@PathVariable String userId){
         User user2 = userServices.getUser(userId);
+        logger.info("Retry count: {}", retryCount);
+        retryCount++;
         return ResponseEntity.ok(user2);
     }
 
     // creating fall back method for circuit breaker(fall back method return type and api return type will be same)
     public ResponseEntity<User> ratingHotelFallBack(String userId, Exception ex){
-        logger.info("fall back is executed beacuse service is down : " , ex.getMessage());
+//        logger.info("fall back is executed beacuse service is down : " , ex.getMessage());
         User user = User.builder()
                 .userEmail("Dummy@gmail.com")
                 .userName("Dummy")
