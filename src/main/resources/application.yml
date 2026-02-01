@@ -59,4 +59,4 @@ resilience4j:
     instance:
       ratingHotelServices:
         max-attempts: 3
-        wait-duration: 5s
+        wait-duration: 3s
