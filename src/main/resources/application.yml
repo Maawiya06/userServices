@@ -40,3 +40,17 @@ management:
   endpoint:
     health:
       show-details: always
+
+resilience4j:
+  circuit breaker:
+    instance:
+      ratingHotelBreaker:
+        registerHealthIndicator: true
+        eventConsumerBufferSize: 10
+        failureRateThreshold: 50
+        minimumNumberOfCalls: 5
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+        waitDurationInOpenState: 6s
+        permittedNumberOfCallsInHalfOpenState: 3
+
+
