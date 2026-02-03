@@ -61,6 +61,7 @@ resilience4j:
         max-attempts: 3
         wait-duration: 3s
 
+#  test this on appachi Jmeter
   ratelimiter:
     instance:
       userRatingLimiter:
